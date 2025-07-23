@@ -1,4 +1,5 @@
 import { auth, currentUser } from '@clerk/nextjs/server'
+import  UserProfilePage  from './user-profile/[[...user-profile]]/page'
 
 export default async function Page() {
   // Get the userId from auth() -- if null, the user is not signed in
@@ -13,5 +14,9 @@ export default async function Page() {
   const user = await currentUser()
 
   // Use `user` to render user details or create UI elements
-  return <div>Welcome, {user ? user.firstName : 'User'}!</div>
+  return (
+    <div>
+      <UserProfilePage />
+    </div>
+  )
 }

@@ -1,36 +1,100 @@
+# Flex Pay
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+---
 
-First, run the development server:
+## Routes
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Public
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- `/`  
+  Home page.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `/dashboard`  
+  User dashboard. Displays session info.  
+  _Requires authentication._
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `/test`  
+  Todo list demo.  
+  _No authentication required._
 
-## Learn More
+### API
 
-To learn more about Next.js, take a look at the following resources:
+- `/api/hello`  
+  Example API route.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `/api/todos`  
+  CRUD API for todos.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `/api/user`  
+  User-related API endpoint.
 
-## Deploy on Vercel
+### Admin
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `/admin`  
+  Admin dashboard.  
+  - Search users by name/email.
+  - View user info and roles.
+  - Set or remove user roles (`admin`, `moderator`).
+  - _Requires user to have the `admin` role._
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Installation
+
+1. **Clone the repository:**
+   ```sh
+   git clone <your-repo-url>
+   cd flex-pay-v2
+   ```
+
+2. **Install dependencies:**
+   ```sh
+   npm install
+   ```
+
+3. **Set up environment variables:**
+   - Copy `.env.example` to `.env.local` and fill in your Clerk and database credentials.
+
+4. **Run the development server:**
+   ```sh
+   npm run dev
+   ```
+
+5. **Access the app:**
+   - Visit [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
+
+## Clerk Authentication
+
+This project uses [Clerk](https://clerk.com/docs) for authentication and user management.
+
+- See the [Clerk documentation](https://clerk.com/docs) for setup and configuration details.
+- Make sure to set your Clerk API keys in your environment variables.
+
+---
+
+## Project Structure
+
+- `app/` — Main Next.js app routes and pages
+- `app/admin/` — Admin dashboard and actions
+- `app/api/` — API routes
+- `types/` — Global TypeScript types
+- `utils/` — Utility functions (e.g., role checking)
+- `public/` — Static assets
+
+---
+
+## Notes
+
+- Only users with the `admin` role can access `/admin` and manage roles.
+- The todo list at `/test` is a simple demo and not protected.
+- All role management actions are handled via server actions and client components for feedback.
+
+---
+
+## License
+
+MIT

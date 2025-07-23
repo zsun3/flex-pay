@@ -1,22 +1,20 @@
-import { auth, currentUser } from '@clerk/nextjs/server'
-import  UserProfilePage  from './user-profile/[[...user-profile]]/page'
-
 export default async function Page() {
-  // Get the userId from auth() -- if null, the user is not signed in
-  const { userId } = await auth()
 
-  // Protect the route by checking if the user is signed in
-  if (!userId) {
-    return <div>Sign in to view this page</div>
-  }
-
-  // Get the Backend API User object when you need access to the user's information
-  const user = await currentUser()
-
-  // Use `user` to render user details or create UI elements
   return (
     <div>
-      <UserProfilePage />
+      <main className="min-h-screen flex flex-col items-center justify-center bg-black text-white p-6">
+
+        {/* Headline */}
+        <h1 className="text-4xl font-bold mb-4 text-center">
+          Welcome to Flex Pay
+        </h1>
+
+        {/* Description */}
+        <p className="text-lg max-w-xl text-center text-gray-300">
+          We are a decentralized Web3 organization focused on reimagining the future of lending.  
+          Flex Pay makes peer-to-peer loans faster, fairer, and trustless through smart contracts and DeFi protocols.
+        </p>
+      </main>
     </div>
   )
 }

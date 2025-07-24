@@ -1,3 +1,5 @@
+import NavigateButton from "./components/NavigationButton"
+
 export default async function Page() {
 
   return (
@@ -14,6 +16,9 @@ export default async function Page() {
           We are a decentralized Web3 organization focused on reimagining the future of lending.  
           Flex Pay makes peer-to-peer loans faster, fairer, and trustless through smart contracts and DeFi protocols.
         </p>
+
+        {/* Navigation Button */}
+        <NavigateButton />
       </main>
     </div>
   )

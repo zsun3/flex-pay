@@ -9,4 +9,8 @@ declare global {
       role?: Roles
     }
   }
+
+  interface Window {
+    ethereum?: any;
+  }
 }

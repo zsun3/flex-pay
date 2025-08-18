@@ -6,7 +6,11 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "chain": "npx hardhat node",
+    "deploy:local": "npx hardhat run scripts/deploy.js --network localhost",
+    "dev:web": "next dev",
+    "dev:all": "concurrently -n CHAIN,WEB \"npm run chain\" \"sleep 5 && npm run deploy:local && npm run dev:web\""
   },
   "dependencies": {
     "@clerk/nextjs": "^6.25.4",
@@ -22,6 +26,7 @@
     "@types/node": "^20.19.9",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "concurrently": "^9.2.0",
     "eslint": "^9",
     "eslint-config-next": "15.4.2",
     "hardhat": "^2.26.1",

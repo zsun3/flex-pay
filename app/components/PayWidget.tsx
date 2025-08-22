@@ -61,6 +61,7 @@ export default function PayWidget() {
   useEffect(() => {
     // optional auto-connect on load
     connect().catch(() => {});
+    (window as any).ethers = ethers; // 👈 now ethers is global
   }, []);
 
   return (

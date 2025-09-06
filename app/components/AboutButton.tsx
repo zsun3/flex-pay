@@ -3,7 +3,7 @@
 
 import { useRouter } from "next/navigation";
 
-export default function NavigateButton() {
+export default function AboutButton() {
   const router = useRouter();
   return (
     <button

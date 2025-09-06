@@ -1,4 +1,5 @@
-import NavigateButton from "./components/NavigationButton"
+import AboutButton from "./components/AboutButton"
+import PayButton from "./components/PayButton"
 
 export default async function Page() {
 
@@ -18,7 +19,10 @@ export default async function Page() {
         </p>
 
         {/* Navigation Button */}
-        <NavigateButton />
+        <div className="flex space-x-4">
+          <AboutButton />
+          <PayButton />
+        </div>
       </main>
     </div>
   )
